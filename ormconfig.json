@@ -1,0 +1,20 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "postgres",
+  "password": "passwd",
+  "database": "ydr_notifications_db",
+  "entities": [
+    "dist/**/*.entity.js"
+  ],
+  "synchronize": false,
+  "migrations": ["./dist/migrations/**/*.js"],
+  "subscribers": ["./dist/subscriber/**/.js"],
+  "cli": {
+    "entitiesDir": "src",
+    "migrationsDir": "migrations",
+    "subscribersDir": "subscriber"
+  },
+  "keepConnectionAlive": true
+}
