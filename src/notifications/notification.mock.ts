@@ -15,6 +15,8 @@ export const notificationMockFactory = (): Notification => {
         to: 'test',
         text: 'lorem ipsum dolor',
         readAt: null,
-        link: null
+        link: null,
+        deletedAt: new Date(), 
+        setUpdatedAt: () => ''
     };
 };

@@ -5,16 +5,23 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { notificationMockFactory } from '../src/notifications/notification.mock';
 import { NotificationsModule } from '../src/notifications/notifications.module';
-import { doesNotMatch } from 'assert';
+import { PassportModule } from '@nestjs/passport';
+import { JwtStrategy } from '../src/jwt.strategy';
+import { JwtService, JwtModule } from '@nestjs/jwt';
+import { YdrJwtModule } from 'ydr-nest-common';
+
 
 describe('AppController (e2e)', () => {
   let app: INestApplication;
   let repository: Repository<Notification>;
-
+  let jwtService: JwtService;
+  
   beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [
         NotificationsModule,
+        PassportModule.register({defaultStrategy: 'jwt'}),
+        YdrJwtModule,
         TypeOrmModule.forRoot({
           type: 'postgres',
           host: 'localhost',
@@ -26,14 +33,17 @@ describe('AppController (e2e)', () => {
           synchronize: true,
           keepConnectionAlive: true
         }),
-      ]}).compile();
+      ],
+    }).compile();
 
     app = moduleFixture.createNestApplication();
     await app.init();
     repository = moduleFixture.get('NotificationRepository');
+    jwtService = moduleFixture.get(JwtService);
+
   });
 
-  describe('GET /to', () => {
+  describe('GET /notifications/to', () => {
     const fakeNotification = notificationMockFactory();
 
     beforeAll(async(done) => {
@@ -46,10 +56,12 @@ describe('AppController (e2e)', () => {
     });
 
     it('should return an array of notifications', async () => {
+      const token = jwtService.sign({id: fakeNotification.id});
+
       const response: {body: Notification[]} = await request.agent(app.getHttpServer())
         .get(`/notifications/to/${fakeNotification.to}`)
         .set('Accept', 'application/json')
-        // .set('Authorization', `Bearer ${authResponse.body.accessToken}`)
+        .set('Authorization', `Bearer ${token}`)
         .expect('Content-Type', /json/)
         .expect(200);
   
