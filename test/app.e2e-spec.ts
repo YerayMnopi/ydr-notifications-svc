@@ -5,10 +5,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { notificationMockFactory } from '../src/notifications/notification.mock';
 import { NotificationsModule } from '../src/notifications/notifications.module';
-import { PassportModule } from '@nestjs/passport';
-import { JwtStrategy } from '../src/jwt.strategy';
-import { JwtService, JwtModule } from '@nestjs/jwt';
+import { JwtService } from '@nestjs/jwt';
 import { YdrJwtModule } from 'ydr-nest-common';
+import { ConfigModule } from '@nestjs/config';
+import { ormE2eConfig } from 'ydr-nest-common';
 
 
 describe('AppController (e2e)', () => {
@@ -20,19 +20,9 @@ describe('AppController (e2e)', () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [
         NotificationsModule,
-        PassportModule.register({defaultStrategy: 'jwt'}),
         YdrJwtModule,
-        TypeOrmModule.forRoot({
-          type: 'postgres',
-          host: 'localhost',
-          port: 5432,
-          username: 'postgres',
-          password: 'passwd',
-          database: 'ydr_notifications_db_e2e_test',
-          entities: ['src/**/*.entity.ts'],
-          synchronize: true,
-          keepConnectionAlive: true
-        }),
+        ConfigModule.forRoot(),
+        TypeOrmModule.forRootAsync(ormE2eConfig),
       ],
     }).compile();
 

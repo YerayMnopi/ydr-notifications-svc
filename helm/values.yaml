@@ -1,0 +1,70 @@
+# Default values for helm.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: belce/ydr-notifications-service
+  pullPolicy: Always
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: false
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name:
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 3001
+
+ingress:
+  enabled: true
+  annotations: 
+    kubernetes.io/ingress.class: traefik
+  hosts:
+    - host: api.localhost
+      paths: [/notifications, /notifications/sse]
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+#resources: 
+#  limits:
+#    cpu: 4096m
+#    memory: 3000Mi
+#  requests:
+#    cpu: 1024m
+#    memory: 500Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+postgresHost: my-release-postgresql.default.svc.cluster.local
+postgresPort: 5432
+postgresDatabase: ydr_notifications_db
+postgresUsername: postgres
+postgresPassword: passwd
+appPort: 3001

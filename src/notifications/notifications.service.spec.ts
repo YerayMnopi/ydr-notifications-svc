@@ -48,4 +48,18 @@ describe('NotificationsService', () => {
       expect(repository.find).toHaveBeenCalledWith( {where: {to: notification.to}});
     });
   });
+
+
+  describe('createForNewUser', () => {
+    it('should create a notifications for a new user id', async() => {
+      const user = {
+        name: 'john',
+        id: 'test'
+      };
+      
+      await service.createForNewUser(user);
+
+      expect(repository.save).toHaveBeenCalled();
+    });
+  });
 });

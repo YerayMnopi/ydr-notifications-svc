@@ -26,9 +26,10 @@
     "migration:revert": "typeorm migration:revert"
   },
   "dependencies": {
-    "@nestjs/common": "^7.0.0",
-    "@nestjs/core": "^7.0.0",
+    "@nestjs/common": "^7.5.1",
+    "@nestjs/core": "^7.5.1",
     "@nestjs/jwt": "^6.1.2",
+    "@nestjs/microservices": "^7.5.1",
     "@nestjs/passport": "^6.2.0",
     "@nestjs/platform-express": "^7.0.0",
     "@nestjs/swagger": "^4.5.6",
@@ -37,6 +38,7 @@
     "@nestjsx/crud-typeorm": "^4.6.2",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.12.2",
+    "kafkajs": "^1.14.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
@@ -49,7 +51,7 @@
     "typeorm": "^0.2.24",
     "typeorm-encrypted": "^0.5.5",
     "ydr-course-artifact": "^1.0.3",
-    "ydr-nest-common": "^1.0.5"
+    "ydr-nest-common": "^1.0.11"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.0.0",

@@ -10,7 +10,16 @@ describe('NotificationsController', () => {
   beforeEach(async () => {
     const moduleRef = await Test.createTestingModule({
         controllers: [NotificationsController],
-        providers: [NotificationsService],
+        providers: [
+          {
+            provide: NotificationsService, 
+            useFactory: jest.fn(() => {
+              return {
+                  findByUserId: jest.fn(),
+                  createForNewUser: jest.fn(),
+              };
+            })}
+        ],
       }).compile();
 
     notificationsService = moduleRef.get<NotificationsService>(NotificationsService);
@@ -29,6 +38,17 @@ describe('NotificationsController', () => {
       await notificationsController.findByUserId(fakeId);
 
       expect(spy).toHaveBeenCalledWith(fakeId);
+    });
+  });
+
+  describe('createForNewUser', () => {
+    it('should create a notification for a new user', async () => {
+      const message = {
+        value: {}
+      };
+      await notificationsController.createForNewUser(message);
+
+      expect(notificationsService.createForNewUser).toHaveBeenCalledWith(message.value);
     });
   });
 });
