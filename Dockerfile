@@ -1,28 +1,15 @@
-FROM node:12.13-alpine As development
-
-WORKDIR /usr/src/app
-
-COPY package*.json ./
-
-RUN npm install
-
-COPY . .
-
-RUN npm run build
-
-FROM node:12.13-alpine as production
-
+FROM node:14.15-alpine3.10 As development
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
+ENV WORKING_DIR=/usr/src/app
+RUN mkdir -p ${WORKING_DIR}
+COPY ./dist ${WORKING_DIR}/dist/
+COPY ./node_modules ${WORKING_DIR}/node_modules/
+COPY ./package.json ${WORKING_DIR}/package.json
+COPY ./tsconfig.json ${WORKING_DIR}/tsconfig.json
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
-
-RUN npm install --only=production
-
-COPY . .
-
-COPY --from=development /usr/src/app/dist ./dist
+RUN npm uninstall dev-dependencies
 
 CMD ["npm", "run", "start:prod"]

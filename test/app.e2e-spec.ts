@@ -19,10 +19,10 @@ describe('AppController (e2e)', () => {
   beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [
-        NotificationsModule,
-        YdrJwtModule,
         ConfigModule.forRoot(),
         TypeOrmModule.forRootAsync(ormE2eConfig),
+        YdrJwtModule,
+        NotificationsModule,
       ],
     }).compile();
 
@@ -35,6 +35,7 @@ describe('AppController (e2e)', () => {
 
   describe('GET /notifications/to', () => {
     const fakeNotification = notificationMockFactory();
+    let token: string;
 
     beforeAll(async(done) => {
       await repository.save([
@@ -43,10 +44,10 @@ describe('AppController (e2e)', () => {
         notificationMockFactory(),
       ]);
       done();
+      token = jwtService.sign({id: fakeNotification.id});
     });
 
     it('should return an array of notifications', async () => {
-      const token = jwtService.sign({id: fakeNotification.id});
 
       const response: {body: Notification[]} = await request.agent(app.getHttpServer())
         .get(`/notifications/to/${fakeNotification.to}`)
@@ -57,6 +58,7 @@ describe('AppController (e2e)', () => {
   
       expect(response.body.length).toBe(3);
     });
+
   });
 
   afterEach(async () => {

@@ -20,7 +20,7 @@ async function bootstrap() {
     options: {
         client: {
             clientId: 'users',
-            brokers: ['localhost:9092'],
+            brokers: [process.env['KAFKA_HOST']],
         },
         consumer: {
             groupId: 'users-consumer'

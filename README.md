@@ -47,6 +47,23 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+### Docker
+Build de the docker image
+`docker build -t belce/ydr-notifications-service .`
+
+Push it to docker hub
+`docker push belce/ydr-notifications-service:latest`
+
+Create a pod in kubenetes
+`helm upgrade --install ydr-notifications-service helm/.`
+
+Watch pod logs
+`kubectl logs --follow {podName}`
+
+Delete all pods of this chart
+`helm uninstall ydr-notifications-service`
+
+
 ## Test
 
 ```bash

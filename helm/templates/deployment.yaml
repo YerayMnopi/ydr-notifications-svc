@@ -29,16 +29,16 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 3000
+              containerPort: 3001
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /api
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /api
-              port: http
+          #livenessProbe:
+          #  httpGet:
+          #    path: http://api.localhost/notifications
+          #    port: http
+          #readinessProbe:
+          #  httpGet:
+          #    path: /notifications
+          #    port: http
           envFrom:
             - configMapRef:
                 name: ydr-notifications-service-config

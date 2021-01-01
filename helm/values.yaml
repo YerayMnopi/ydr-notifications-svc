@@ -42,7 +42,7 @@ ingress:
     kubernetes.io/ingress.class: traefik
   hosts:
     - host: api.localhost
-      paths: [/notifications, /notifications/sse]
+      paths: [/notifications]
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
@@ -62,9 +62,21 @@ tolerations: []
 
 affinity: {}
 
-postgresHost: my-release-postgresql.default.svc.cluster.local
+postgresHost: 165.22.121.147
 postgresPort: 5432
 postgresDatabase: ydr_notifications_db
 postgresUsername: postgres
 postgresPassword: passwd
 appPort: 3001
+postgresE2eUsername: postgres
+postgresE2ePassword: passwd
+postgresE2eHost: 165.22.121.147
+postgresE2ePort: 5432
+postgresE2eDatabase: ydr_notifications_db_e2e_test
+jwtSecretKey: "&XFgcGsK@eYps@4MPENrFqLaTW%*jp7A5XFZplMng08"
+jwtTokenLifetime: 600
+kafkaHost: 'kafka.default.svc.cluster.local:9092'
+sendNewNotificationsInterval: 1
+redisHost: 165.22.121.147
+redisPort: 6379
+cacheTtl: 300

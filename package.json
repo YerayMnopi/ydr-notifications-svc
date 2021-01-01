@@ -12,7 +12,7 @@
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "typeorm migration:run && node dist/src/main",
+    "start:prod": "npm run migration:run && node dist/src/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -20,10 +20,10 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json --detectOpenHandles",
     "typeorm:node": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
-    "migration:generate": "typeorm migration:generate -n",
-    "migration:create": "typeorm migration:create -n",
+    "migration:generate": "npm run typeorm:node migration:generate -n",
+    "migration:create": "typeorm:node migration:create -n",
     "migration:run": "typeorm migration:run",
-    "migration:revert": "typeorm migration:revert"
+    "migration:revert": "npm run typeorm:node migration:revert"
   },
   "dependencies": {
     "@nestjs/common": "^7.5.1",
@@ -33,7 +33,7 @@
     "@nestjs/passport": "^6.2.0",
     "@nestjs/platform-express": "^7.0.0",
     "@nestjs/swagger": "^4.5.6",
-    "@nestjs/typeorm": "^7.0.0",
+    "@nestjs/typeorm": "^7.1.5",
     "@nestjsx/crud": "^4.6.2",
     "@nestjsx/crud-typeorm": "^4.6.2",
     "class-transformer": "^0.2.3",
@@ -51,7 +51,7 @@
     "typeorm": "^0.2.24",
     "typeorm-encrypted": "^0.5.5",
     "ydr-course-artifact": "^1.0.3",
-    "ydr-nest-common": "^1.0.11"
+    "ydr-nest-common": "^1.0.14"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.0.0",
