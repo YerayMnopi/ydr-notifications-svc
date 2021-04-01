@@ -5,7 +5,7 @@ import { Transport } from '@nestjs/microservices';
 import { logLevel } from '@nestjs/microservices/external/kafka-options.interface';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, { cors: true });
+  const app = await NestFactory.create(AppModule, { cors: false });
 
   const options = new DocumentBuilder()
     .setTitle('YDR notifications service')

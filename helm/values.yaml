@@ -80,3 +80,4 @@ sendNewNotificationsInterval: 1
 redisHost: 165.22.121.147
 redisPort: 6379
 cacheTtl: 300
+smtpTransport: smtps://diazrodriguezyeray@gmail.com:saYMBTrFA8dCVDzR@smtp-relay.sendinblue.com
