@@ -1,0 +1,54 @@
+
+> ydr-notifications-svc@0.0.1 start /Users/n226510/yeray/nest/ydr-notifications-svc
+> nest start
+
+[32m[Nest] 3925   - [39m06/02/2022 13:33:12   [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 3925   - [39m06/02/2022 13:33:13   [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +34ms[39m
+[32m[Nest] 3925   - [39m06/02/2022 13:33:13   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 3925   - [39m06/02/2022 13:33:13   [38;5;3m[InstanceLoader] [39m[32mYdrJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 3925   - [39m06/02/2022 13:33:13   [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 3925   - [39m06/02/2022 13:33:13   [38;5;3m[InstanceLoader] [39m[32mMailerModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 3925   - [39m06/02/2022 13:33:13   [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 3925   - [39m06/02/2022 13:33:13   [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 3925   - [39m06/02/2022 13:33:13   [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 3925   - [39m06/02/2022 13:33:13   [38;5;3m[InstanceLoader] [39m[32mCacheModule dependencies initialized[39m[38;5;3m +378ms[39m
+[32m[Nest] 3925   - [39m06/02/2022 13:33:13   [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 3925   - [39m06/02/2022 13:33:13   [38;5;3m[InstanceLoader] [39m[32mMailerCoreModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 3925   - [39m06/02/2022 13:33:13   [38;5;3m[InstanceLoader] [39m[32mRedisCacheModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 3925   - [39m06/02/2022 13:33:13   [38;5;3m[InstanceLoader] [39m[32mMailModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 3925   - [39m06/02/2022 13:33:14   [38;5;3m[InstanceLoader] [39m[32mTypeOrmCoreModule dependencies initialized[39m[38;5;3m +633ms[39m
+[32m[Nest] 3925   - [39m06/02/2022 13:33:14   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 3925   - [39m06/02/2022 13:33:14   [38;5;3m[InstanceLoader] [39m[32mNotificationsModule dependencies initialized[39m[38;5;3m +5ms[39m
+[32m[Nest] 3925   - [39m06/02/2022 13:33:15   [38;5;3m[NestMicroservice] [39m[32mNest microservice successfully started[39m[38;5;3m +1303ms[39m
+[31m[Nest] 3925   - [39m06/02/2022 13:33:15   [38;5;3m[ServerKafka] [39m[31mERROR [BrokerPool] Closed connection {"timestamp":"2022-02-06T12:33:15.790Z","logger":"kafkajs","retryCount":0,"retryTime":304}[39m[38;5;3m +316ms[39m
+[31m[Nest] 3925   - [39m06/02/2022 13:33:16   [38;5;3m[ServerKafka] [39m[31mERROR [BrokerPool] Closed connection {"timestamp":"2022-02-06T12:33:16.114Z","logger":"kafkajs","retryCount":1,"retryTime":574}[39m[38;5;3m +324ms[39m
+[31m[Nest] 3925   - [39m06/02/2022 13:33:16   [38;5;3m[ServerKafka] [39m[31mERROR [BrokerPool] Closed connection {"timestamp":"2022-02-06T12:33:16.722Z","logger":"kafkajs","retryCount":2,"retryTime":1344}[39m[38;5;3m +607ms[39m
+[31m[Nest] 3925   - [39m06/02/2022 13:33:18   [38;5;3m[ServerKafka] [39m[31mERROR [BrokerPool] Closed connection {"timestamp":"2022-02-06T12:33:18.131Z","logger":"kafkajs","retryCount":3,"retryTime":2896}[39m[38;5;3m +1409ms[39m
+[31m[Nest] 3925   - [39m06/02/2022 13:33:21   [38;5;3m[ServerKafka] [39m[31mERROR [BrokerPool] Closed connection {"timestamp":"2022-02-06T12:33:21.037Z","logger":"kafkajs","retryCount":4,"retryTime":6094}[39m[38;5;3m +2906ms[39m
+[31m[Nest] 3925   - [39m06/02/2022 13:33:27   [38;5;3m[ServerKafka] [39m[31mERROR [BrokerPool] Closed connection {"timestamp":"2022-02-06T12:33:27.367Z","logger":"kafkajs","retryCount":5,"retryTime":11024}[39m[38;5;3m +6331ms[39m
+(node:3925) UnhandledPromiseRejectionWarning: KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionClosedError: Closed connection
+    at Socket.onEnd (/Users/n226510/yeray/nest/ydr-notifications-svc/node_modules/kafkajs/src/network/connection.js:139:13)
+    at Socket.emit (events.js:327:22)
+    at endReadableNT (internal/streams/readable.js:1327:12)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21)
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3925) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+(node:3925) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ETIMEDOUT
+    at TCP.onStreamRead (internal/stream_base_commons.js:209:20)
+Emitted 'error' event on RedisClient instance at:
+    at RedisClient.on_error (/Users/n226510/yeray/nest/ydr-notifications-svc/node_modules/redis/index.js:342:14)
+    at Socket.<anonymous> (/Users/n226510/yeray/nest/ydr-notifications-svc/node_modules/redis/index.js:223:14)
+    at Socket.emit (events.js:315:20)
+    at emitErrorNT (internal/streams/destroy.js:106:8)
+    at emitErrorCloseNT (internal/streams/destroy.js:74:3)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21) {
+  errno: -60,
+  code: 'ETIMEDOUT',
+  syscall: 'read'
+}

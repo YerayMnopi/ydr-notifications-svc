@@ -17,6 +17,6 @@ export const notificationMockFactory = (): Notification => {
         readAt: null,
         link: null,
         deletedAt: new Date(), 
-        setUpdatedAt: () => ''
+        new: false,
     };
 };

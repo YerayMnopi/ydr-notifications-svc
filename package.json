@@ -20,10 +20,10 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json --detectOpenHandles",
     "typeorm:node": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
-    "migration:generate": "npm run typeorm:node migration:generate -n",
-    "migration:create": "typeorm:node migration:create -n",
+    "migration:generate": "typeorm migration:generate -n",
+    "migration:create": "typeorm migration:create -n",
     "migration:run": "typeorm migration:run",
-    "migration:revert": "npm run typeorm:node migration:revert"
+    "migration:revert": "typeorm migration:revert"
   },
   "dependencies": {
     "@nestjs-modules/mailer": "^1.5.1",
@@ -54,7 +54,7 @@
     "typeorm": "^0.2.24",
     "typeorm-encrypted": "^0.5.5",
     "ydr-course-artifact": "^1.0.3",
-    "ydr-nest-common": "^1.0.14"
+    "ydr-nest-common": "^1.0.18"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.0.0",

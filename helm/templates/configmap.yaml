@@ -34,6 +34,6 @@ data:
   REDIS_HOST: "{{.Values.redisHost}}"
   REDIS_PORT: "{{.Values.redisPort}}"
   CACHE_TTL: "{{.Values.cacheTtl}}"
-  SMTP_TRANSPORT: "{{ Values.smtpTransport }}"
+  SMTP_TRANSPORT: "{{ .Values.smtpTransport }}"
 
 

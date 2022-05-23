@@ -17,6 +17,10 @@ export class Notification extends SlugeableEntity {
     @IsDate()
     readAt!: Date | null;
 
+    @Column({ type: 'bool', name: 'new', nullable: false, default: false })
+    @IsDate()
+    new!: boolean;
+
     @Column({ type: 'varchar', length: 255 })
     @IsString()
     text: string;
